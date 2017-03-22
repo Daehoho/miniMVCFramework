@@ -1,6 +1,5 @@
 package spms.listeners;
 
-// 서버에서 제공하는 DataSource 사용하기
 import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;

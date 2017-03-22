@@ -31,9 +31,11 @@ public class DispatcherServlet extends HttpServlet{
 		String servletPath = request.getServletPath();
 		try {
 			ServletContext sc = this.getServletContext();
+			HttpSession session = request.getSession();
 			
 			HashMap<String,Object> model = new HashMap<String,Object>();
 			model.put("memberDao", sc.getAttribute("memberDao"));
+			model.put("session", session);
 			
 			String pageControllerPath = null;
 			Controller pageController = null;
@@ -74,8 +76,6 @@ public class DispatcherServlet extends HttpServlet{
 			}
 			
 			String viewUrl = pageController.execute(model);
-			HttpSession session = request.getSession();
-			
 			
 			for (String key: model.keySet()) {
 				request.setAttribute(key, model.get(key));
@@ -86,13 +86,6 @@ public class DispatcherServlet extends HttpServlet{
 				response.sendRedirect(viewUrl.substring(9));
 				return;
 			} else {
-				if(request.getAttribute("session") != null) {
-					session.setAttribute("member", request.getAttribute("session"));
-					System.out.println("s"+session.getAttribute("member"));
-				} else {
-					System.out.println("logout");
-					session.invalidate();
-				}
 				RequestDispatcher rd = request.getRequestDispatcher(viewUrl);
 				rd.include(request, response);
 			}
