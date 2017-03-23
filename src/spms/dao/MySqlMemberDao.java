@@ -9,8 +9,10 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import spms.annotation.Component;
 import spms.vo.Member;
 
+@Component("memberDao")
 public class MySqlMemberDao implements MemberDao {
   DataSource ds;
 
@@ -113,7 +115,7 @@ public class MySqlMemberDao implements MemberDao {
         .setCreatedDate(rs.getDate("CRE_DATE"));
 
       } else {
-        throw new Exception("?•´?‹¹ ë²ˆí˜¸?˜ ?šŒ?›?„ ì°¾ì„ ?ˆ˜ ?—†?Šµ?‹ˆ?‹¤.");
+        throw new Exception("?ï¿½ï¿½?ï¿½ï¿½ ë²ˆí˜¸?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì°¾ì„ ?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½.");
       }
 
     } catch (Exception e) {
