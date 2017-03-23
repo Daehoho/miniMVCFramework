@@ -1,6 +1,5 @@
 package spms.dao;
 
-// DataSource í™œìš© 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import javax.sql.DataSource;
 
 import spms.vo.Member;
 
-public class MemberDao {
+public class MySqlMemberDao implements MemberDao {
   DataSource ds;
 
   public void setDataSource(DataSource ds) {
@@ -114,7 +113,7 @@ public class MemberDao {
         .setCreatedDate(rs.getDate("CRE_DATE"));
 
       } else {
-        throw new Exception("í•´ë‹¹ ë²ˆí˜¸ì˜ íšŒì›ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        throw new Exception("?•´?‹¹ ë²ˆí˜¸?˜ ?šŒ?›?„ ì°¾ì„ ?ˆ˜ ?—†?Šµ?‹ˆ?‹¤.");
       }
 
     } catch (Exception e) {
