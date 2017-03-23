@@ -8,10 +8,10 @@ tmp/
 *.swp
 *~.nib
 local.properties
+build/
 .settings/
 .loadpath
 .recommenders
-build/
 
 # Eclipse Core
 .project
