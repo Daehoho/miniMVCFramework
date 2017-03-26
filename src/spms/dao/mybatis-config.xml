@@ -3,6 +3,10 @@
 <configuration>
 	<properties resource="spms/dao/db.properties"/>
 	
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
 	<typeAliases>
 		<typeAlias type="spms.vo.Project" alias="project"/>
 		<typeAlias type="spms.vo.Member" alias="member" />
