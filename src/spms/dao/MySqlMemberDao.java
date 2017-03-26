@@ -36,6 +36,7 @@ public class MySqlMemberDao implements MemberDao {
 		try {
 			return sqlSession.insert("spms.dao.MemberDao.insert", member);
 		} finally {
+			sqlSession.close();
 		}
 	}
 
